@@ -17,19 +17,14 @@ const createUserValidationSchema = {
         errorMessage: "Le prénom ne doit pas être nul",
       },
     },
-    age: {
+    Age: {
       isInt: {
         errorMessage: "L'âge doit être un nombre entier",
       },
       notEmpty: {
         errorMessage: "L'âge ne doit pas être nul",
       },
-    },
-    Ville: {
-      isString: true,
-      notEmpty: {
-        errorMessage: "La ville ne doit pas être nul",
-      },
+      toInt: true, 
     },
   };
   

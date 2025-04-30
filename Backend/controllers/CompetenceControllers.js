@@ -1,4 +1,4 @@
-const pool = require('../db');
+const pool = require('../modules/db');
  
 
 const CreateCompetence= async(req,res)=>{

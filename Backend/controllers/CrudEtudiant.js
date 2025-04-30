@@ -1,15 +1,15 @@
-const pool = require('../db.js');
+const pool = require('../modules/db.js');
 const { validationResult, matchedData } = require('express-validator');  
 const checkSchema = require('../utils/validationSchemas.js'); 
 const createUser = async (req, res) => {
-    const { cin, Nom, Prenom,Age,Ville } = req.body;
+    const { cin, Nom, Prenom,Age} = req.body;
     try {
         const errors = validationResult(req); 
         if (!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() }); 
         }
         const data = matchedData(req); 
-        const result = await pool.query('INSERT INTO PERSONNE (cin, Nom, Prenom,Age,Ville) VALUES ($1, $2, $3,$4,$5)', [data.cin, data.Nom, data.Prenom,data.Age,data.Ville]);
+        const result = await pool.query('INSERT INTO PERSONNE (cin, Nom, Prenom,Age) VALUES ($1, $2, $3,$4)', [data.cin, data.Nom, data.Prenom,data.Age]);
         return res.status(201).json({
             message: 'Utilisateur créé avec succès',
             result: result.rows[0], 
@@ -21,7 +21,7 @@ const createUser = async (req, res) => {
     }
 };
 const updateUser = async (req, res) => {
-    const { Nom, Prenom, Age, Ville } = req.body;
+    const { Nom, Prenom, Age} = req.body;
     try {
         const errors = validationResult(req); 
         if (!errors.isEmpty()) {
@@ -30,8 +30,8 @@ const updateUser = async (req, res) => {
         const { cin } = req.params;
         const data = matchedData(req); 
         const result = await pool.query(
-            'UPDATE PERSONNE SET Nom = $1, Prenom = $2, Age = $3, Ville = $4 WHERE cin = $5',
-            [data.Nom, data.Prenom, data.Age, data.Ville, cin]
+            'UPDATE PERSONNE SET Nom = $1, Prenom = $2, Age = $3 WHERE cin = $4',
+            [data.Nom, data.Prenom, data.Age, cin]
         );
         if (result.rowCount === 0) {
             return res.status(404).json({ message: 'Utilisateur non trouvé' });
