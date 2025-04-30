@@ -1,18 +1,18 @@
 const express = require('express');
 const app = express();
 const {router} = require('./Router/CompetenceRoute');
-const cors=require('cors');
+// const cors=require('cors');
 
 // Définir le port
 let Port = 4500;
 
 app.use(express.json()); // Cela permet de traiter les données envoyées via POST en JSON
 
+const user=require('./Router/crudEtudiant');
+app.use('/',user);
 
 
-
-
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+// app.use(cors({ origin: "http://localhost:5173", credentials: true }));
 
 
 // Démarrer le serveur

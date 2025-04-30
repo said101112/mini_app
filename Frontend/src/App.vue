@@ -7,7 +7,7 @@
     </header>
     
     <main>
-      
+      <StudentPage />
       <Competence />
     </main>
   </div>
@@ -15,6 +15,7 @@
 
 <script setup>
 import Competence from './components/competence.vue'
+import StudentPage from './components/StudentPage.vue';
 </script>
 
 <style>
