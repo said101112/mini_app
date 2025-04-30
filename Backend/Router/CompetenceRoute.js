@@ -8,8 +8,5 @@ router.post('/api/competence',CreateCompetence);
 router.delete('api/competence/:id',deleteCompetence);
 router.put('api/competence/:id',updateCompetence);
 
-
-
-
-module.exports={router}
+module.exports = { router }
 

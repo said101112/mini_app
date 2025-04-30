@@ -18,13 +18,13 @@ const CreateCompetence= async(req,res)=>{
 }
 const updateCompetence = async (req, res) => {
   const { idC } = req.params;
-    const { nouveaunomCompetence, nouveaucategorie } = req.body;
+    const { nomCompetence, categorie } = req.body;
 
     if (!idC) {
         return res.status(400).json({ message: "ID de la compétence est requis" });
     }
     try{
-    const response = await pool.query('UPDATE Competence SET nomCompetence=$1, categories=$2 WHERE idC=$3', [nouveaunomCompetence, nouveaucategorie, idC]);
+    const response = await pool.query('UPDATE Competence SET nomCompetence=$1, categories=$2 WHERE idC=$3', [nomCompetence,categorie, idC]);
 
     if (response.rowCount === 0) {
         return res.status(404).json({ message: "Compétence non trouvée" });

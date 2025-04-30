@@ -1,35 +1,326 @@
-@import './base.css';
+/* Global Styles */
+body {
+  font-family: 'Helvetica', sans-serif;
+  background-color: #f4f7fc; /* Couleur de fond claire */
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
 
-#app {
-  max-width: 1280px;
+/* Main Container */
+main {
+  display: flex;
+  flex-direction: column;
+  padding-left: 1rem;
+  padding-top: 1rem;
+  background-color: #fff;
+  max-width: 100%;
   margin: 0 auto;
+  padding-bottom: 2rem;
+}
+
+/* Background Colors */
+.bg-white {
+  background-color: #fff;
+}
+
+.bg-blue-lightest {
+  background-color: #E0F7FF; /* Bleu très clair */
+}
+
+.bg-blue-lighter {
+  background-color: #80D0FF; /* Bleu clair */
+}
+
+.bg-blue {
+  background-color: #1D4ED8; /* Bleu moyen */
+}
+
+.bg-blue-dark {
+  background-color: #2563EB; /* Bleu foncé */
+}
+
+.bg-blue-darker {
+  background-color: #1A3A8C; /* Bleu très foncé */
+}
+
+.bg-gray-100 {
+  background-color: #f3f4f6;
+}
+
+.bg-gray-300 {
+  background-color: #d1d5db;
+}
+
+.bg-gray-50 {
+  background-color: #f9fafb;
+}
+
+.bg-orange-500 {
+  background-color: #f97316; /* Orange */
+}
+
+.bg-orange-600 {
+  background-color: #ea580c; /* Orange foncé */
+}
+
+/* Text Colors */
+.text-gray-700 {
+  color: #374151;
+}
+
+.text-gray-600 {
+  color: #4b5563;
+}
+
+.text-gray-500 {
+  color: #6b7280;
+}
+
+.text-blue {
+  color: #2563eb; /* Bleu clair */
+}
+
+.text-blue-darker {
+  color: #1d4ed8; /* Bleu moyen */
+}
+
+.text-red-600 {
+  color: #dc2626;
+}
+
+.text-red-700 {
+  color: #b91c1c;
+}
+
+.text-gray-800 {
+  color: #1f2937;
+}
+
+/* Fonts */
+.font-sans {
+  font-family: 'Helvetica', sans-serif;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+}
+
+/* Form Layout */
+form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.col-span-1 {
+  grid-column: span 1;
+}
+
+/* Padding and Margin */
+.p-2 {
+  padding: 0.5rem;
+}
+
+.p-3 {
+  padding: 0.75rem;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.p-6 {
+  padding: 1.5rem;
+}
+
+.p-8 {
   padding: 2rem;
-  font-weight: normal;
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
+.ml-8 {
+  margin-left: 2rem;
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+.mb-6 {
+  margin-bottom: 1.5rem;
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
+.mb-8 {
+  margin-bottom: 2rem;
+}
 
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
+.mt-8 {
+  margin-top: 2rem;
+}
+
+/* Border Styles */
+.border {
+  border-width: 1px;
+  border-color: #d1d5db;
+}
+
+.border-t {
+  border-top-width: 1px;
+}
+
+.border-b {
+  border-bottom-width: 1px;
+}
+
+/* Input & Button Styles */
+input,
+select,
+button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  width: 100%;
+  border: 1px solid #d1d5db;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #2563eb; /* Focus avec bleu */
+}
+
+button {
+  background-color: #1D4ED8; /* Bleu moyen */
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-image: linear-gradient(to right, #1D4ED8, #2563EB); /* Dégradé bleu */
+}
+
+button:hover {
+  background-image: linear-gradient(to right, #2563EB, #1D4ED8); /* Dégradé au survol */
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Specific Button for 'Annuler' */
+button[type="button"] {
+  background-color: #d1d5db; /* Gris clair */
+  color: #374151;
+  transition: background-color 0.3s ease;
+}
+
+button[type="button"]:hover {
+  background-color: #9ca3af; /* Gris foncé */
+}
+
+/* Error Message */
+.bg-red-50 {
+  background-color: #fef2f2;
+}
+
+.text-red-700 {
+  color: #b91c1c;
+}
+
+.border-red-300 {
+  border-color: #fbbf24;
+}
+
+button[type="button"] {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.375rem;
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  text-align: left;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+table th,
+table td {
+  padding: 0.75rem;
+  text-align: left;
+}
+
+table th {
+  background-color: #f3f4f6;
+  font-weight: 600;
+}
+
+table tr:hover {
+  background-color: #f9fafb;
+}
+
+table button {
+  background: none;
+  border: none;
+  color: #2563eb;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+table button:hover {
+  color: #1d4ed8;
+}
+
+/* Loader Styles */
+.p-8 {
+  padding: 2rem;
+  text-align: center;
+  color: #6b7280;
+}
+
+/* Styling for Inputs and Selects */
+input,
+select {
+  background-color: #fff;
+  border-radius: 0.375rem;
+  border: 1px solid #d1d5db;
+  padding: 0.75rem;
+  font-size: 1rem;
+}
+
+input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+/* Hover and Focus Effects */
+button:hover {
+  background-color: #1d4ed8;
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.5);
+}
+
+input:focus {
+  border-color: #1d4ed8;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.5);
 }
