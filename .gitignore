@@ -8,8 +8,8 @@ pnpm-debug.log*
 lerna-debug.log*
 
 Frontend/node_modules
-Backtend/node_modules
-Backtend/.env
+Backend/node_modules
+Backend/.env
 .DS_Store
 dist
 dist-ssr
